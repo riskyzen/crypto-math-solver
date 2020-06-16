@@ -1,6 +1,9 @@
 #include <iostream>
 using namespace std;
 
+//variable
+int pilih;
+
 //title banner
 void title()
 {
@@ -24,10 +27,51 @@ void title()
 int main()
 {
     title();
-    cout<<"1. Rsa"<<endl;
-    cout<<"2. elgamal"<<endl;
-    cout<<"3. Curva Eliptik"<<endl;
-    cout<<"4. Modular Exponen"<<endl;
-    cout<<"5. Modular Inverse"<<endl;
-    cout<<"6. Prime Check"<<endl;
+    cout<<"[1] Rsa"<<endl;
+    cout<<"[2] elgamal"<<endl;
+    cout<<"[3] Curva Eliptik"<<endl;
+    cout<<"[4] Modular Exponen"<<endl;
+    cout<<"[5] Modular Inverse"<<endl;
+    cout<<"[6] Prime Check"<<endl;
+    cout << endl;
+    cout << "--> ";
+    cin >> pilih;
+
+    switch (pilih)
+    {
+        case 1:
+        {
+            cout << "rsa";
+            break;
+        }
+        case 2:
+        {
+            cout << "elgamal";
+            break;
+        }
+        case 3:
+        {
+            cout << "kurva";
+            break;
+        }
+        case 4:
+        {
+            cout << "modexp";
+            break;
+        }
+        case 5:
+        {
+            cout << "modinv";
+            break;
+        }
+        case 6:
+        {
+            cout << "prime";
+            break;
+        }
+        default:
+        {
+            cout << "input salah";
+        }
+    }
 }
