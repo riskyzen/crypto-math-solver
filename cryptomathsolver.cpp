@@ -1,8 +1,18 @@
 #include <iostream>
+#include <cmath>
 using namespace std;
 
 //variable
 int pilih;
+
+//modular exponentation function
+int modexp(int a, int b, int n)
+{
+    int r = pow(a,b);
+    r = r % n;
+    cout << "result  : " << r;
+    return r;
+}
 
 //title banner
 void title()
@@ -56,7 +66,17 @@ int main()
         }
         case 4:
         {
-            cout << "modexp";
+            cout << "modexp" << endl;
+            cout << "================="<< endl;
+            int a,b,n;
+            cout << "input a : ";
+            cin >> a;
+            cout << "input b : ";
+            cin >> b;
+            cout << "input n : ";
+            cin >> n;
+            modexp(a,b,n);
+            cout << endl <<"=================" << endl;
             break;
         }
         case 5:
