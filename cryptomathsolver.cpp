@@ -16,6 +16,20 @@ int modexp(int a, int b, int n)
     return r;
 }
 
+//modinv
+int modInverse(int a, int m) 
+{ 
+	a = a%m; 
+	for (int x=1; x<m; x++)
+    {
+        if ((a*x) % m == 1)
+        {
+            return x;
+        }
+    }
+    return 0;
+}
+
 //title banner
 void title()
 {
@@ -99,7 +113,12 @@ int main()
             case 5:
             {
                 cout << "modinv";
-                break;
+				int a, m;
+			    cout << "a = ";
+			    cin >> a;
+                cout << "m = ";
+                cin >> m;
+			    cout << modInverse(a, m);
             }
             case 6:
             {
