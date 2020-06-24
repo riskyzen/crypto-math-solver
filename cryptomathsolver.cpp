@@ -6,7 +6,8 @@ using namespace std;
 
 //variable
 int pilih,num;
-string kembali, plain;
+string kembali;
+char plaintext[50];
 
 //modular exponentation function
 int modexp(int a, unsigned int b, int n) 
@@ -66,12 +67,11 @@ int prime(int num)
 int enc(int e, int n)
 {
     char cipher[50];
-    char plaintext[] = "18.83.0234";
-    int z = strlen("18.83.0234");
     cout << "Ciphertext : ";
+    int z = strlen(plaintext);
     for (int i=0; i < z; i++)
     {
-        int x = (int)plaintext[i];
+        int x = plaintext[i];
         int c = modexp(x,e,n);
         cipher[i] = c;
         cout << c << " ";
@@ -88,9 +88,11 @@ int rsa(int p, int q, int e)
     cout << "nilai n : " << n << endl;
     int lcm = (p-1)*(q-1);
     cout << "nilai lcm : " << lcm << endl;
-    int d = pow(e,lcm);
+    int d = modInverse(e,lcm);
     cout << "nilai d : " << d << endl;
     cout << "======================" << endl;
+    cout << "Plaintext : ";
+    cin >> plaintext;
     enc(e,n);
     return 0;
 }
