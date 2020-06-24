@@ -42,6 +42,7 @@ int prime(int num)
       }
       else
       cout<<num<<" is a prime number" << endl;
+      return 0;
    }
    return 0;
 }
