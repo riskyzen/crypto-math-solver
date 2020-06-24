@@ -4,7 +4,7 @@
 using namespace std;
 
 //variable
-int pilih;
+int pilih,num;
 string kembali;
 
 //modular exponentation function
@@ -29,6 +29,24 @@ int modInverse(int a, int m)
     }
     return 0;
 }
+
+//prime check
+int prime(int num)
+{
+   bool flag = true;
+   for(int i = 2; i <= num / 2; i++) 
+   {
+      if(num % i == 0) 
+	  {
+         cout<<num<<" is not a prime number" << endl;
+         break;
+      }
+      else
+      cout<<num<<" is a prime number" << endl;
+   return 0;
+   }
+}
+
 
 //title banner
 void title()
@@ -55,8 +73,9 @@ int main()
     menu:
         system("clear");
         title();
+	coba_lagi:
         cout<<"[1] Rsa"<<endl;
-        cout<<"[2] elgamal"<<endl;
+        cout<<"[2] Elgamal"<<endl;
         cout<<"[3] Curva Eliptik"<<endl;
         cout<<"[4] Modular Exponen"<<endl;
         cout<<"[5] Modular Inverse"<<endl;
@@ -86,7 +105,7 @@ int main()
             {
                 modexp:
                     system("clear");
-                    cout << "modexp" << endl;
+                    cout << "##### Modular Eksponen #####" << endl;
                     cout << "================="<< endl;
                     int a,b,n;
                     cout << "input a : ";
@@ -122,12 +141,34 @@ int main()
             }
             case 6:
             {
-                cout << "prime";
-                break;
+                string coba;
+		cout << "##### Prime Check #####" << endl;
+	        cout << "||||||||||||||||||||" << endl;
+	        cout << "VVVVVVVVVVVVVVVVVVVV" << endl;
+	        cout<<"Masukkan Angka : ";
+	   	cin>>num;
+	   	prime(num);
+	   	cout << "Apakah Anda Ingin Mencoba lagi (y/n)?";
+	   	cin >> coba;
+	   	if (coba == "Y" or coba== "y")
+	   	{
+	   		goto coba_lagi;
+		}
+		else 
+			break;
+	        }
+	        default:
+	        {
+	            cout << "Maaf Inputan Tidak Terdapat Dalam Pilihan" << endl;
+	            cout << "Silahkan Coba Lagi \n";
+	            goto coba_lagi;
+		}
             }
             default:
             {
-                cout << "input salah";
+                cout << "Maaf Inputan Tidak Terdapat Dalam Pilihan" << endl;
+	        cout << "Silahkan Coba Lagi \n";
+	        goto coba_lagi;
             }
         }
 }
