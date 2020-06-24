@@ -43,8 +43,8 @@ int prime(int num)
       }
       else
       cout<<num<<" is a prime number" << endl;
-   return 0;
    }
+   return 0;
 }
 
 
@@ -142,33 +142,26 @@ int main()
             case 6:
             {
                 string coba;
-		cout << "##### Prime Check #####" << endl;
-	        cout << "||||||||||||||||||||" << endl;
-	        cout << "VVVVVVVVVVVVVVVVVVVV" << endl;
-	        cout<<"Masukkan Angka : ";
-	   	cin>>num;
-	   	prime(num);
-	   	cout << "Apakah Anda Ingin Mencoba lagi (y/n)?";
-	   	cin >> coba;
-	   	if (coba == "Y" or coba== "y")
-	   	{
-	   		goto coba_lagi;
-		}
-		else 
-			break;
-	        }
-	        default:
-	        {
-	            cout << "Maaf Inputan Tidak Terdapat Dalam Pilihan" << endl;
-	            cout << "Silahkan Coba Lagi \n";
-	            goto coba_lagi;
-		}
+                    cout << "##### Prime Check #####" << endl;
+                    cout << "||||||||||||||||||||" << endl;
+                    cout << "VVVVVVVVVVVVVVVVVVVV" << endl;
+                    cout<<"Masukkan Angka : ";
+                    cin>>num;
+                    prime(num);
+                    cout << "Apakah Anda Ingin Mencoba lagi (y/n)?";
+                    cin >> coba;
+                    if (coba == "Y" or coba== "y")
+                    {
+                        goto coba_lagi;
+                    }
+                else 
+                    break;
             }
-            default:
+                    default:
             {
                 cout << "Maaf Inputan Tidak Terdapat Dalam Pilihan" << endl;
-	        cout << "Silahkan Coba Lagi \n";
-	        goto coba_lagi;
+                cout << "Silahkan Coba Lagi \n";
+                goto coba_lagi;
             }
         }
 }
