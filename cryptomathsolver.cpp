@@ -1,20 +1,35 @@
 #include <iostream>
 #include <cmath>
 #include <stdlib.h>
+#include <string.h>
 using namespace std;
 
 //variable
 int pilih,num;
-string kembali;
+string kembali, plain;
 
 //modular exponentation function
-int modexp(int a, int b, int n)
-{
-    int r = pow(a,b);
-    r = r % n;
-    cout << "result  : " << r;
-    return r;
-}
+int modexp(int a, unsigned int b, int n) 
+{ 
+    int r = 1;
+
+    a = a % n;
+    if (a == 0)
+    {
+        return 0;
+    }
+
+    while (b > 0) 
+    { 
+        if (b & 1)
+        {
+          r = (r*a) % n; 
+        }
+        b = b>>1;
+        a = (a*a) % n; 
+    } 
+    return r; 
+} 
 
 //modinv
 int modInverse(int a, int m) 
@@ -42,10 +57,12 @@ int prime(int num)
       }
       else
       cout<<num<<" is a prime number" << endl;
-      return 0;
+      return num;
    }
    return 0;
 }
+
+
 
 
 //title banner
@@ -88,7 +105,15 @@ int main()
         {
             case 1:
             {
-                cout << "rsa";
+                int p, q, e;
+                cout << "rsa" << endl;
+                cout << "input p : ";
+                cin >> p;
+                cout << "input q : ";
+                cin >> q;
+                cout << "input e : ";
+                cin >> e;
+                //rsa(p,q,e);
                 break;
             }
             case 2:
@@ -114,7 +139,7 @@ int main()
                     cin >> b;
                     cout << "input n : ";
                     cin >> n;
-                    modexp(a,b,n);
+                    cout << "hasil : " << modexp(a,b,n);
                     cout << endl <<"=================" << endl << endl;
                     cout << "[back] goto menu" << endl;
                     cout << "[00] go to top" << endl << endl;
@@ -131,13 +156,25 @@ int main()
             }
             case 5:
             {
-                cout << "modinv";
-				int a, m;
-			    cout << "a = ";
-			    cin >> a;
-                cout << "m = ";
-                cin >> m;
-			    cout << modInverse(a, m);
+                modinv:
+                    cout << "modinv" << endl;
+                    int a, m;
+                    cout << "a = ";
+                    cin >> a;
+                    cout << "m = ";
+                    cin >> m;
+                    cout << modInverse(a, m);
+                    cout << endl <<"=================" << endl << endl;
+                    cout << "[back] goto menu" << endl;
+                    cout << "[00] go to top" << endl << endl;
+                    cout << "--> ";
+                    cin >> kembali;
+                    if (kembali == "back")                    {
+                        goto menu;
+                    }else
+                    {
+                        goto modinv;
+                    }
             }
             case 6:
             {
