@@ -1,9 +1,11 @@
 #include <iostream>
 #include <cmath>
+#include <stdlib.h>
 using namespace std;
 
 //variable
 int pilih;
+string kembali;
 
 //modular exponentation function
 int modexp(int a, int b, int n)
@@ -36,62 +38,77 @@ void title()
 
 int main()
 {
-    title();
-    cout<<"[1] Rsa"<<endl;
-    cout<<"[2] elgamal"<<endl;
-    cout<<"[3] Curva Eliptik"<<endl;
-    cout<<"[4] Modular Exponen"<<endl;
-    cout<<"[5] Modular Inverse"<<endl;
-    cout<<"[6] Prime Check"<<endl;
-    cout << endl;
-    cout << "--> ";
-    cin >> pilih;
+    menu:
+        system("clear");
+        title();
+        cout<<"[1] Rsa"<<endl;
+        cout<<"[2] elgamal"<<endl;
+        cout<<"[3] Curva Eliptik"<<endl;
+        cout<<"[4] Modular Exponen"<<endl;
+        cout<<"[5] Modular Inverse"<<endl;
+        cout<<"[6] Prime Check"<<endl;
+        cout << endl;
+        cout << "--> ";
+        cin >> pilih;
 
-    switch (pilih)
-    {
-        case 1:
+        switch (pilih)
         {
-            cout << "rsa";
-            break;
+            case 1:
+            {
+                cout << "rsa";
+                break;
+            }
+            case 2:
+            {
+                cout << "elgamal";
+                break;
+            }
+            case 3:
+            {
+                cout << "kurva";
+                break;
+            }
+            case 4:
+            {
+                modexp:
+                    system("clear");
+                    cout << "modexp" << endl;
+                    cout << "================="<< endl;
+                    int a,b,n;
+                    cout << "input a : ";
+                    cin >> a;
+                    cout << "input b : ";
+                    cin >> b;
+                    cout << "input n : ";
+                    cin >> n;
+                    modexp(a,b,n);
+                    cout << endl <<"=================" << endl << endl;
+                    cout << "[back] goto menu" << endl;
+                    cout << "[00] go to top" << endl << endl;
+                    cout << "--> ";
+                    cin >> kembali;
+                    if (kembali == "back")
+                    {
+                        goto menu;
+                    }else
+                    {
+                        goto modexp;
+                    }
+                    
+            }
+            case 5:
+            {
+                cout << "modinv";
+                break;
+            }
+            case 6:
+            {
+                cout << "prime";
+                break;
+            }
+            default:
+            {
+                cout << "input salah";
+            }
         }
-        case 2:
-        {
-            cout << "elgamal";
-            break;
-        }
-        case 3:
-        {
-            cout << "kurva";
-            break;
-        }
-        case 4:
-        {
-            cout << "modexp" << endl;
-            cout << "================="<< endl;
-            int a,b,n;
-            cout << "input a : ";
-            cin >> a;
-            cout << "input b : ";
-            cin >> b;
-            cout << "input n : ";
-            cin >> n;
-            modexp(a,b,n);
-            cout << endl <<"=================" << endl;
-            break;
-        }
-        case 5:
-        {
-            cout << "modinv";
-            break;
-        }
-        case 6:
-        {
-            cout << "prime";
-            break;
-        }
-        default:
-        {
-            cout << "input salah";
-        }
-    }
 }
