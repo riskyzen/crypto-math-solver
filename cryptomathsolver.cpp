@@ -88,7 +88,43 @@ int main()
         {
             case 1:
             {
-                cout << "rsa";
+                cout << "##### RSA #####" << endl;
+                    cout << "================="<< endl;
+                    int p=7,q=17,e=13,d=37;int n = p*q;int lcm=(p-1)*(q-1);
+                   	char pesan[100];
+                    int m[1000];
+                    double c[1000];
+                    cout << "nilai p : " <<p<<endl;
+                  	cout << "nilai q :" << q<<endl;
+                  	cout << "nilai n : "<< n << endl;
+                  	cout << "nilai lcm : "<< lcm << endl;
+                  	cout << "kunci public : "<<e<<endl;
+                  	cout << "kunci privat : "<<d<<endl;
+                  	cout << "masukkan pesan: ";
+                    fflush(stdin);
+                  	cin>>pesan;
+                   	for(int i=0;pesan[i]!=0;i++)
+                    	{
+						m[i]=pesan[i];}
+                    cout<<endl<<"\nCipherteks : ";
+                    for(int l=0;m[l]!=0;l++)
+                       {
+					   	c[l]=fmod((pow(m[l],e)), n);
+					   	
+                    	cout<<c[l]<<" "; }
+
+                    cout << endl <<"=================" << endl << endl;
+                    cout << "[back] goto menu" << endl;
+                    cout << "[00] go to top" << endl << endl;
+                    cout << "--> ";
+                    cin >> kembali;
+                    if (kembali == "back")
+                    {
+                        goto menu;
+                    }else
+                    {
+                        goto modexp;
+                    }
                 break;
             }
             case 2:
