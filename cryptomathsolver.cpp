@@ -138,16 +138,30 @@ int main()
         {
             case 1:
             {
-                int p, q, e;
-                cout << "rsa" << endl;
-                cout << "input p : ";
-                cin >> p;
-                cout << "input q : ";
-                cin >> q;
-                cout << "input e : ";
-                cin >> e;
-                rsa(p,q,e);
-                break;
+                rsa:
+                    system("clear");
+                    int p, q, e;
+                    cout << "rsa" << endl;
+                    cout << "================="<< endl;
+                    cout << "input p : ";
+                    cin >> p;
+                    cout << "input q : ";
+                    cin >> q;
+                    cout << "input e : ";
+                    cin >> e;
+                    rsa(p,q,e);
+                    cout << endl <<"=================" << endl << endl;
+                    cout << "[back] goto menu" << endl;
+                    cout << "[] go to top" << endl << endl;
+                    cout << "--> ";
+                    cin >> kembali;
+                    if (kembali == "back")
+                    {
+                        goto menu;
+                    }else
+                    {
+                        goto rsa;
+                    }
             }
             case 2:
             {
@@ -175,7 +189,7 @@ int main()
                     cout << "hasil : " << modexp(a,b,n);
                     cout << endl <<"=================" << endl << endl;
                     cout << "[back] goto menu" << endl;
-                    cout << "[00] go to top" << endl << endl;
+                    cout << "[] go to top" << endl << endl;
                     cout << "--> ";
                     cin >> kembali;
                     if (kembali == "back")
@@ -190,6 +204,7 @@ int main()
             case 5:
             {
                 modinv:
+                    system("clear");
                     cout << "modinv" << endl;
                     int a, m;
                     cout << "a = ";
@@ -199,7 +214,7 @@ int main()
                     cout << modInverse(a, m);
                     cout << endl <<"=================" << endl << endl;
                     cout << "[back] goto menu" << endl;
-                    cout << "[00] go to top" << endl << endl;
+                    cout << "[] go to top" << endl << endl;
                     cout << "--> ";
                     cin >> kembali;
                     if (kembali == "back")                    {
@@ -211,21 +226,25 @@ int main()
             }
             case 6:
             {
-                string coba;
+                prime :
+                    system("clear");
                     cout << "##### Prime Check #####" << endl;
                     cout << "||||||||||||||||||||" << endl;
                     cout << "VVVVVVVVVVVVVVVVVVVV" << endl;
                     cout<<"Masukkan Angka : ";
                     cin>>num;
                     prime(num);
-                    cout << "Apakah Anda Ingin Mencoba lagi (y/n)?";
-                    cin >> coba;
-                    if (coba == "Y" or coba== "y")
+                    cout << endl <<"=================" << endl << endl;
+                    cout << "[back] goto menu" << endl;
+                    cout << "[] go to top" << endl << endl;
+                    cout << "--> ";
+                    cin >> kembali;
+                    if (kembali == "back")                    {
+                        goto menu;
+                    }else
                     {
-                        goto coba_lagi;
+                        goto prime;
                     }
-                else 
-                    break;
             }
                     default:
             {
